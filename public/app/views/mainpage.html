@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <base href="/">
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="This is social network html5 template available in themeforest......" />
+		<meta name="keywords" content="Social Network, Social Media, Make Friends, Newsfeed, Profile Page" />
+		<meta name="robots" content="index, follow" />
+		<title>Edit Profile | Edit Profile Page</title>
+
+    <!-- Stylesheets
+    ================================================= -->
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/ionicons.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+    <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/angular-route.js"></script>
+		<script src="assets/js/angular-route.min.js"></script>
+		<!-- <script src="assets/js/bootstrap.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/jquery-3.1.1.js"></script>
+		<script src="assets/js/jquery-3.1.1.min.js"></script> -->
+
+		<script src="assets/js/ng-file-upload.min.js"></script>
+		<script src="assets/js/ng-file-upload-shim.min.js"></script>
+		<script src="assets/js/moment.js"></script>
+
+
+    <script src="assets/js/angular-animate.js"></script>
+    <script src="assets/js/angular-animate.min.js"></script>
+
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+    <!-- you didn't included the controller script here -->
+    <script src="app/Controllers/mainCtrl.js"></script>
+    <script src="app/Controllers/emailCtrl.js"></script>
+		<script src="app/Controllers/userCtrl.js"></script>
+		<script src="app/services/userServices.js"></script>
+		<script src="app/services/authServices.js"></script>
+		<script src="app/Controllers/profileCtrl.js"></script>
+		<script src="app/Controllers/postCtrl.js"></script>
+		<script src="app/Controllers/groupCtrl.js"></script>
+		<script src="app/Controllers/classCtrl.js"></script>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" type="image/png" href="assets/images/fav.png"/>
+
+
+
+	</head>
+  <body ng-app="userApp" ng-controller="mainCtrl as main">
+
+     <!-- Header
+		================================================= -->
+		<header id="header" >
+				<a class="navbar-brand navbar-fixed-top" ><img class="img1" src="/assets/images/logo.png" alt="logo" ng-show="!main.isLoggedIn"/></a>
+      <nav class="navbar navbar-default navbar-fixed-top menu"  ng-show="main.isLoggedIn">
+        <div class="container" >
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header"  >
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" ><img class="img" src="/assets/images/logo.png" alt="logo" ng-show="main.isLoggedIn"/></a>
+					
+						
+					</div>
+         
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+              <ul class="nav navbar-nav navbar-right main-menu"  ng-show="main.isLoggedIn">
+				  <li class="dropdown" >	<a ng-click="main.searchUser()"  type="submit"  href= "/notify" > <i  class="fa fa-search" ></i></a></li>
+                <li class="dropdown"><a href="/home">Home</a></li>
+                <!-- router links starts with #!URL  -->
+                <li class="dropdown"><a data-toggle="modal" data-target="#myModal-2">Create/Join class</a></li>
+
+
+                <li class="dropdown"><a data-toggle="modal" data-target="#myModal">Create/Join Group</a></li>
+
+
+                <li class="dropdown"><a href="/edit-profile-basic">Profile</a></li>
+
+
+                <li class="dropdown"><a href="/messages">Messages</a></li>
+
+                <li class="dropdown"><a href="/logout" ng-click="main.logout();">Logout</a></li>
+
+								
+              </ul>
+
+              <form class="navbar-form navbar-right hidden-sm"  ng-show="main.isLoggedIn">
+                <div class="form-group">
+                 
+									<input type="text" class="form-control" ng-model="main.searchValue" placeholder="Search" >
+									
+								</div>
+						
+							
+              </form>
+
+
+	
+
+					  </div><!-- /.navbar-collapse -->
+
+
+					</div><!-- /.container -->
+        </nav>
+      </header>
+
+
+
+    <!--Header End-->
+		<!--my model start!-->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="close" style="color:red"  data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+
+											</button>
+											 <h4 class="modal-title" id="myModalLabel">Join/Create Group</h4>
+
+									</div>
+									<div class="modal-body">
+											<div role="tabpanel">
+													<!-- Nav tabs -->
+													<ul class="nav nav-tabs" role="tablist">
+															<li role="presentation" class="active"><a href="#joinTab" aria-controls="joinTab" role="tab" data-toggle="tab">Join</a>
+
+															</li>
+															<li role="presentation"><a href="#createTab" aria-controls="createTab" role="tab" data-toggle="tab">Create</a>
+
+															</li>
+															<li role="presentation"><a href="#listTab" aria-controls="listTab" role="tab" data-toggle="tab">Joined Groups</a>
+
+															</li>
+													</ul>
+													<!-- Tab panes -->
+													<div class="tab-content">
+															<div role="tabpanel" class="tab-pane active" id="joinTab">
+																					<br>
+																			<label for="group-join">Group Name:</label>
+																			<input type="text" class="form-control" id="group-join">
+																			<br>
+																			<label for="group-joinpwd">Password:</label>
+																			<input type="password" class="form-control" id="group-joinpwd">
+																			<br>
+
+																		 <a href="/group"  ><button type="button" class="btn btn-primary" >Join</button></a>
+															</div>
+
+															<div role="tabpanel" class="tab-pane" id="createTab">
+																	<br>
+																	<label for="group-create">Group Name:</label>
+																	<input type="text" class="form-control" id="group-create">
+																	<br>
+																	<label for="group-createpwd">Password:</label>
+																	 <input type="password" class="form-control" id="group-createpwd">
+
+																	<br>
+																	<button type="button" class="btn btn-primary" data-dismiss="modal" >Create</button></div>
+
+
+															<div role="tabpanel" class="tab-pane" id="listTab">
+																	<br>
+																	<br>
+																	<a href="#">New Group</a>
+																	<br>
+																	<br>
+																	<a href="#">Second Group</a>
+															</div>
+													</div>
+											</div>
+									</div>
+
+							</div>
+					</div>
+			</div>
+<!--my model- end !-->
+
+<!--my model-2 start!-->
+			<div ng-controller="classCtrl" class="modal fade" id="myModal-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+							<div class="modal-content">
+									<div class="modal-header">
+											<button type="button" class="close" style="color:red"  data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+
+											</button>
+											 <h4 class="modal-title" id="myModalLabel">Join/Create Class</h4>
+
+									</div>
+									<div class="modal-body">
+											<div role="tabpanel">
+													<!-- Nav tabs -->
+													<ul class="nav nav-tabs" role="tablist">
+															<li role="presentation" class="active"><a href="#joinTab-2" aria-controls="joinTab-2" role="tab" data-toggle="tab">Join</a>
+
+															</li>
+															<li role="presentation"><a href="#createTab-2" aria-controls="createTab-2" role="tab" data-toggle="tab">Create</a>
+
+															</li>
+															<li role="presentation"><a href="#listTab-2" aria-controls="listTab-2" role="tab" data-toggle="tab">Joined Class</a>
+
+															</li>
+													</ul>
+													<!-- Tab panes -->
+													<div class="tab-content">
+															<div role="tabpanel" class="tab-pane active" id="joinTab-2">
+																					<br>
+																			<label for="create-join">Class Name:</label>
+																			<input ng-model='joinname' type="text" class="form-control" id="create-join">
+																			<br>
+																			<label for="create-joinpwd">Password:</label>
+																			<input  ng-model= 'joincode' type="password" class="form-control" id="create-joinpwd">
+																			<br>
+																			<a href="/class"  ><button ng-click= 'joinclass(main._id)' type="button" class="btn btn-primary" >Join</button></a>
+															</div>
+
+															<div role="tabpanel" class="tab-pane" id="createTab-2">
+																	<br>
+																	<label for="class-create">Class Name:</label>
+																	<input ng-model= 'createname'  type="text" class="form-control" id="class-create">
+																	<br>
+																	<label for="class-createpwd">Password:</label>
+																	 <input  ng-model= 'createcode' type="password" class="form-control" id="class-createpwd">
+
+																	<br>
+																	<button  ng-click= 'createclass()' type="button" class="btn btn-primary" data-dismiss="modal">Create</button></div>
+
+
+															<div role="tabpanel" class="tab-pane" id="listTab-2">
+																	<br>
+																	<br>
+																	<a href="#">New Class</a>
+																	<br>
+																	<br>
+																	<a href="#">Second Class</a>
+															</div>
+													</div>
+											</div>
+									</div>
+
+							</div>
+					</div>
+			</div>
+
+
+
+
+
+    <body   ng-show="main.loadme" ng-cloak>
+      <!-- This is all right! -->
+    <div ng-view>
+
+    </div>
+
+  </body>
+    <!-- Footer
+    ================================================= -->
+
+
+    <!--preloader-->
+    <div id="spinner-wrapper">
+      <div class="spinner"></div>
+    </div>
+
+
+    <script src="assets/js/jquery-3.1.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.sticky-kit.min.js"></script>
+    <script src="assets/js/jquery.scrollbar.min.js"></script>
+    <script src="assets/js/script.js"></script>
+	</body>
+</html>

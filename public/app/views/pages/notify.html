@@ -1,0 +1,14 @@
+<div> 
+    <h1 style="text-transform: capitalize">Searched Users</h1>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading" style="text-align: center; background: dodgerblue"><strong style="text-transform: capitalize">Matched Users</strong></div>
+<table class="table">
+    <tr>
+        <td><strong>Searched users by First Name</strong></td>
+    </tr>
+    <tr ng-repeat="user in main.searchedData">
+        <td><a href="/About/{{user._id}}"> {{ user.username }}</a></td>
+    </tr>
+</table>
+</div>

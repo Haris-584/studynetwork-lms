@@ -1,0 +1,220 @@
+<!-- Avoid adding more head as well as html sections... they are already present -->
+<!-- Reason, to avoid writing unnecessary code. -->
+<div id="page-contents" ng-controller="profileCtrl"> 
+    <div class="container">
+      <div class="row">
+
+        <!-- Newsfeed Common Side Bar Left
+        ================================================= -->
+        <div class="col-md-3 static">
+          <div class="profile-card">
+            <img src="http://placehold.it/300x300" alt="user" class="profile-photo" /></div>
+            <div class="profile-detail">
+              <br>
+            <h5 class="text-white">{{main.data.username}}</h5>
+            <h5  class="text-white" >{{main.data.dicipline}}</h5>
+            <h5  class="text-white">{{main.data.country}}</h5>
+           
+
+          </div><!--profile card ends-->
+          
+          <ul class="nav-news-feed"> 
+       
+  
+
+           <li>
+              <label for="year" class="sr-only"></label>
+              <select class="form-control2" id="dicipline">
+
+          <option value="Dicipline" disabled selected>Select Catagory</option>
+          <option >All</option>
+          <option >Computer Science</option>
+          <option >Chemistry</option>
+            <option>Physics</option>
+            <option>Hr</option>
+            <option>Urdu</option>
+            <option>Engineering</option>
+            <option>Biology</option>
+            <option>Maths</option>
+            <option>Pharmacy</option>
+            <option>Zeology</option>
+            <option>Bio Technology</option>
+            <option>Journalism</option>
+            <option>Other</option>
+            
+              </select>
+              
+                        </li>
+                        <div class="cat-filter tools publishing-tools list-inline">    <a href="" class="tik" > <i class="fa fa-check-square-o" aria-hidden="true"></i></a></div>
+           
+          </ul><!--news-feed links ends-->
+
+        </div>
+
+        <div class="col-md-7" ng-controller="postCtrl">
+
+          <!-- Post Create Box
+          ================================================= -->
+
+       
+            <form name="form" enctype="multipart/form-data">
+               
+                <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                    ngf-accept="'image/*'"><a href=""></a></div>
+               
+            </form>
+      
+
+
+          <div class="create-post">
+            <div class="row">
+              <div class="col-md-7 col-sm-7">
+                <div class="form-group">
+                  <img src="http://placehold.it/300x300" alt="" class="profile-photo-md" />
+                  <textarea ng-model="newPost.description"   name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Write Your Post Here !"></textarea>
+                </div>
+              </div>
+              <div class="col-md-5 col-sm-5">
+                <div class="tools">
+                  <ul class="publishing-tools list-inline">
+                      <li><div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                      ngf-accept="'image/*'"><a href=""><i class="fa fa-picture-o" ></i></a></div>  </li>
+                   
+                    <li><a href="#"><i class="ion-compose"></i></a></li> &nbsp;
+                    <button type="submit" ng-click="submit(main._id)" class="btn btn-primary pull-right">Post</button>
+                    <!-- <button >Submit</button> -->
+                    </ul>
+                
+                </div>
+               
+              </div>
+              
+            </div>
+            <div class="option">
+              <select  required class="form-control3 tag-style" ng-model="newPost.tag">
+
+                <option  value="" disabled selected>Tag</option>
+                <option >All</option>
+                <option >Computer Science</option>
+                <option>Chemistry</option>
+                  <option>Physics</option>
+                  <option>Hr</option>
+                  <option>Urdu</option>
+                  <option>Engineering</option>
+                  <option>Biology</option>
+                  <option>Maths</option>
+                  <option>Pharmacy</option>
+                  <option>Zeology</option>
+                  <option>Bio Technology</option>
+                  <option>Journalism</option>
+                  <option>Other</option>
+                    </select>
+
+                    
+                  </div>
+          </div><!-- Post Create Box End-->
+
+          <!-- Post Content
+          ============================================            ===== -->
+
+              <div ng-controller="postCtrl" class="post-content" ng-repeat="post in posts">
+         
+            <div class="post-container">
+              <img src="http://placehold.it/300x300" alt="user" class="profile-photo-md pull-left" />
+              <div class="post-detail">
+                <div class="user-info">
+                  <h5>
+                    <a href="/About" class="profile-link">{{post.author.username}}</a>
+                    <span class="following"> {{post.tag}}</span>
+                  </h5>
+          <span class="pull-right" ng-if="newsfeed.current_user == post.user_email">
+          <div class="dropdown navbar-right">
+          
+          <i data-toggle="dropdown"class="fa fa-ellipsis-h"></i>
+          <ul class="dropdown-menu ">
+          
+          <ol><a  href="#" >Edit</a></ol>
+          <ol><a  href="#">Delete</a></ol>
+          
+          </ul> 
+          </div>
+                   
+                  </span>
+          <p class="text-muted">Published an update about {{post.time}}</p>
+                </div>
+          
+                <div class="line-divider" ></div>
+                <div class="post-text">
+                  <p>
+                   <i class="em em-thumbsup"></i>
+                    <i class="em em-thumbsup"></i>
+                     {{post.description}}</p>
+                </div>
+                <div>
+                    <img src="../../../media/{{ post.media.filename}}" alt="post-image" class="img-responsive post-image" />
+                </div>
+                <div class="line-divider"></div>
+                <div ng-show="toggle">
+                  <div class="post-comment" >
+                    <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm" />
+                    <p>
+  
+                      <a href="timeline.html" class="profile-link">ahmed </a> 
+                     &nbsp; &nbsp;
+                      <i>demo tme</i>
+                      <br>
+                    demo comment
+                     <br>
+                      
+                     
+                     <div class="edit-post-right">
+                      <div class="dropdown navbar-right ">
+  
+  
+                          <i data-toggle="dropdown" class="fa fa-ellipsis-h pull-right "></i>
+                      <ul class="dropdown-menu ">
+                     
+                       <ol><a  href="#" >Edit</a></ol>
+                       <ol><a  href="#"  >Delete</a></ol>
+                       
+                      </ul> 
+                         </div>
+                        </div>
+                    </p>
+                  </div>
+                </div>
+                <br>
+              <div class="reaction">
+                <!--    <a class="btn text-green">
+                    <i class="icon ion-thumbsup"></i> 23</a>
+                  <a class="btn text-red">
+                    <i class="fa fa-thumbs-down"></i> 4</a>-->
+                  <button id="toggleMessage" class="btn-show-hide"  ><a ng-click="toggle=!toggle">{{toggle ? 'Hide Comments' : 'Show Comments'}}</a>  </button>
+                </div>
+                <br>
+                <div class="post-comment">
+                  <img src="http://placehold.it/300x300" alt="" class="profile-photo-sm" />
+                  <input type="text" class="form-control" placeholder="Post a comment" >
+                  <button type="submit"  class="button-sub"> Submit </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          </div>
+         
+
+
+
+        <!-- Newsfeed Common Side Bar Right
+        ================================================= -->
+        <div class="col-md-2 static">
+          <div class="suggestions" id="sticky-sidebar">
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

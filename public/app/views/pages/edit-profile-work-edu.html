@@ -1,0 +1,148 @@
+
+    <div class="container">
+
+      <!-- Timeline
+      ================================================= -->
+      <div class="timeline">
+        <div class="timeline-cover">
+
+          <!--Timeline Menu for Large Screens-->
+          <div class="timeline-nav-bar hidden-sm hidden-xs">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="profile-info">
+                  <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+                  <h3>{{main.username}}</h3>
+                  <p class="text-muted">Instructor</p>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <ul class="list-inline profile-menu">
+                    <li><button class="edit-btn-primary">Edit Photo </button></li>
+              
+            
+              </div>
+            </div>
+          </div><!--Timeline Menu for Large Screens End-->
+
+          <!--Timeline Menu for Small Screens-->
+          <div class="navbar-mobile hidden-lg hidden-md">
+            <div class="profile-info">
+              <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+              <h4>{{main.username}}</h4>
+              <p class="text-muted">Instructor</p>
+            </div>
+            <div class="mobile-menu">
+              <ul class="list-inline">
+                  <button class="edit-btn-primary">Edit Photo</button>
+               
+               
+              
+              </ul>
+              
+            </div>
+          </div><!--Timeline Menu for Small Screens End-->
+
+        </div>
+        <div id="page-contents">
+          <div class="row">
+            <div class="col-md-3">
+              
+              <!--Edit Profile Menu-->
+              <ul class="edit-menu">
+              	<li><i class="icon ion-ios-information-outline"></i><a href="/edit-profile-basic">Basic Information</a></li>
+              	<li class="active"><i class="icon ion-ios-briefcase-outline"></i><a href="/edit-profil-work-edu">Education and Work</a></li>
+             
+              	<li><i class="icon ion-ios-locked-outline"></i><a href="/edit-profile-password">Change Password</a></li>
+              </ul>
+            </div>
+            <div class="col-md-7">
+
+              <!-- Edit Work and Education
+              ================================================= -->
+              <div class="edit-profile-container">
+                <div class="block-title">
+                  <h4 class="grey"><i class="icon ion-ios-book-outline"></i>My education</h4>
+                  <div class="line"></div>
+                  
+                  <div class="line"></div>
+                </div>
+                <div class="edit-block">
+                  <form name="education" id="education" class="form-inline">
+                    <div class="row">
+                      <div class="form-group col-xs-12">
+                        <label for="school">My College</label>
+                        <input id="school" class="form-control input-group-lg" type="text" name="school" title="Enter College Name" placeholder="My College" value="Fazaia college" />
+                        <div class="row">
+                            <div class="form-group col-xs-6">
+                              <label for="date-from">From</label>
+                              <input id="date-from" class="form-control input-group-lg" type="text" name="date" title="Enter a Date" placeholder="from" value="2011" />
+                            </div>
+                            <div class="form-group col-xs-6">
+                              <label for="date-to" class="">To</label>
+                              <input id="date-to" class="form-control input-group-lg" type="text" name="date" title="Enter a Date" placeholder="to" value="2013" />
+                            </div>
+
+                        <label for="school">My University</label>
+                        <input id="school" class="form-control input-group-lg" type="text" name="school" title="Enter University Name" placeholder="My University" value={{main.data.universityName}} />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-xs-6">
+                        <label for="date-from">From</label>
+                        <input id="date-from" class="form-control input-group-lg" type="text" name="date" title="Enter a Date" placeholder="from" value="2014" />
+                      </div>
+                      <div class="form-group col-xs-6">
+                        <label for="date-to" class="">To</label>
+                        <input id="date-to" class="form-control input-group-lg" type="text" name="date" title="Enter a Date" placeholder="to" value="2018" />
+                      </div>
+                      
+                      <div class="form-group col-sm-6 col-xs-12">
+                          <label for="Dicipline">Dicipline</label>
+                         
+                          <select class="form-control" id="year">
+                              <option >{{main.data.dicipline}}</option>
+                            <option >Computer Science</option>
+                            <option>Chemistry</option>
+                            <option>Physics</option>
+                            <option>Hr</option>
+                            <option>Urdu</option>
+                            <option>Engineering</option>
+                            <option>Biology</option>
+                            <option>Maths</option>
+                            <option>Pharmacy</option>
+                            <option>Zeology</option>
+                            <option>Bio Technology</option>
+                            <option>journalism</option>
+                          </select>
+                        </div>       
+                           </div>
+                    <div class="row">
+                      <div class="form-group col-xs-12">
+                        <label for="edu-description">Description</label>
+                        <textarea id="edu-description" name="description" class="form-control" placeholder="Some texts about my education" rows="4" cols="400">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</textarea>
+                      </div>
+                    </div>
+                  
+                    </div>
+                    <button class="btn btn-primary">Save Changes</button>
+                  </form>
+                </div>
+                
+                  
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 static">
+              
+              <!--Sticky Timeline Activity Sidebar-->
+              <div id="sticky-sidebar">
+              
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+

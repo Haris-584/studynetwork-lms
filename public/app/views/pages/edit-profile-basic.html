@@ -1,0 +1,124 @@
+
+    <script src="app/app.js"></script>
+    <script src="app/routes.js"></script>
+
+
+    <div class="container">
+
+      <!-- Timeline
+      ================================================= -->
+      <div class="timeline">
+        <div class="timeline-cover">
+
+          <!--Timeline Menu for Large Screens-->
+          <div class="timeline-nav-bar hidden-sm hidden-xs">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="profile-info">
+                  <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+                  <h3>{{main.username}}</h3>
+                  <p class="text-muted">Instructor</p>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <ul class="list-inline profile-menu">
+                    <li><button class="edit-btn-primary">Edit Photo</button></li>
+                 
+                </ul>
+              
+              </div>
+            </div>
+          </div><!--Timeline Menu for Large Screens End-->
+
+          <!--Timeline Menu for Small Screens-->
+          <div class="navbar-mobile hidden-lg hidden-md">
+            <div class="profile-info">
+              <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+              <h4>{{main.username}}}</h4>
+              <p class="text-muted">Instructor</p>
+            </div>
+            <div class="mobile-menu">
+              <ul class="list-inline">
+             
+               
+              </ul>
+              <button class="edit-btn-primary">Edit Photo</button>
+            </div>
+          </div><!--Timeline Menu for Small Screens End-->
+
+        </div>
+        <div id="page-contents">
+          <div class="row">
+            <div class="col-md-3">
+              
+              <!--Edit Profile Menu-->
+              <ul class="edit-menu">
+              	<li class="active"><i class="icon ion-ios-information-outline"></i><a href="/edit-profile-basic">Basic Information</a></li>
+              	<li><i class="icon ion-ios-briefcase-outline"></i><a href="/edit-profil-work-edu">Education and Work</a></li>
+              	
+              	<li><i class="icon ion-ios-locked-outline"></i><a href="/edit-profile-password" >Change Password</a></li>
+              </ul>
+            </div>
+            <div class="col-md-7">
+
+              <!-- Basic Information
+              ================================================= -->
+              <div class="edit-profile-container" >
+                <div class="block-title">
+                  <h4 class="grey"><i class="icon ion-android-checkmark-circle"></i>Edit basic information</h4>
+                  <div class="line"></div>
+                 
+                  <div class="line"></div>
+                </div>
+                <div class="edit-block">
+                  <form name="basic-info" id="basic-info" class="form-inline">
+                    <div class="row">
+                      <div class="form-group col-xs-6">
+                        <label >Username</label>
+                        <input  class="form-control input-group-lg" type="text" name="Username" title="Enter  Username" placeholder="First name" value= {{main.username}} />
+                      </div>
+                      
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-xs-12">
+                        <label for="contact-number">Contact Number</label>
+                        <input  class="form-control input-group-lg" type="text" name="contact-number" title="Enter Contact NUmber" placeholder="Enter Contact Number Here" />
+                                            
+                        
+                      </div>
+                      <div class="form-group col-xs-6">
+                          <label for="country">Are You Student or Instructor ?</label>
+                          <select class="form-control" id="country">
+                              <option value="stu">Student</option>
+                            <option value="ins">Instructor</option>
+                          
+                          </select>
+                       
+                      </div>
+                    </div>
+
+                
+                    </div>
+               
+                    </div>
+                    <div class="row">
+                      
+                    </div>
+                    <button class="btn btn-primary">Save Changes</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 static">
+              
+              <!--Sticky Timeline Activity Sidebar-->
+             
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+

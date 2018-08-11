@@ -1,0 +1,131 @@
+    <div class="container" ng-controller="profileCtrl">
+
+      <!-- Timeline
+      ================================================= -->
+      <div class="timeline">
+        <div class="timeline-cover">
+
+          <!--Timeline Menu for Large Screens-->
+          <div class="timeline-nav-bar hidden-sm hidden-xs">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="profile-info">
+                  <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+                  <h3>{{userDetails.username}}</h3>
+                  <p class="text-muted">{{userDetails.dicipline}}</p>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <ul class="list-inline profile-menu">
+                 
+                  <li><a ></a></li>
+                  
+                </ul>
+               
+              </div>
+            </div>
+          </div><!--Timeline Menu for Large Screens End-->
+
+          <!--Timeline Menu for Small Screens-->
+          <div class="navbar-mobile hidden-lg hidden-md">
+            <div class="profile-info">
+              <img src="http://placehold.it/300x300" alt="" class="img-responsive profile-photo" />
+              <h4>{{userDetails.username}}</h4>
+              <p class="text-muted">Instructor</p>
+            </div>
+            <div class="mobile-menu">
+              <ul class="list-inline">
+              
+                <li><a href="timeline-about.html" class="active">About</a></li>
+              
+              </ul>
+             
+            </div>
+          </div><!--Timeline Menu for Small Screens End-->
+
+        </div>
+        <div id="page-contents">
+          <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-7">
+
+              <!-- About
+              ================================================= -->
+              <div class="about-profile">
+                <div class="about-content-block">
+                  <h4 class="grey">Personal Information</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur</p>
+                </div>
+            
+                
+                
+                <div class="about-content-block">
+                  <h4 class="grey"><i class="ion-ios-briefcase-outline icon-in-title"></i>Education</h4>
+                  <div class="organization">
+                    <img src="images/envato.png" alt="" class="pull-left img-org" />
+                    <div class="work-info">
+                      <h5>College</h5>
+                      <p> <span class="text-grey">2011</span>   To  <span class="text-grey">2013</span></p>
+                    </div>
+                  </div>
+                  <div class="organization">
+                    <img src="images/envato.png" alt="" class="pull-left img-org" />
+                    <div class="work-info">
+                      <h5>Unversity</h5>
+                      <p><span class="text-grey"> 2014 </span> <span></span>   To <span class="text-grey"    >2018</span></p>
+                    </div>
+                  </div>
+                  <div class="about-content-block">
+                    <h4 class="grey">Institute Where You Are Instructor </h4>
+                    <p>{{userDetails. universityName}}</p>
+                  </div>
+                  <div class="about-content-block">
+                    <h4 class="grey">Email</h4>
+                    <p>{{userDetails.email}}</p>
+                  </div>
+                  <div class="about-content-block">
+                    <h4 class="grey">Contact No </h4>
+                    <p>0347-8933372</p>
+                  </div>
+                  <div class="about-content-block">
+                    <h4 class="grey">Country</h4>
+                    <p>{{userDetails.country}}</p>
+                  </div>
+                  <div class="about-content-block">
+                    <h4 class="grey">City </h4>
+                    <p>{{userDetails.city}}</p>
+                  </div>
+                 
+                    
+                  </div>
+                </div>
+                <div class="about-content-block">
+                 
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 static">
+             
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Footer
+    ================================================= -->
+   
+    <!-- Scripts
+    ================================================= -->
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap"></script>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky-kit.min.js"></script>
+    <script src="js/jquery.scrollbar.min.js"></script>
+    <script src="js/script.js"></script>
+     -->
+  </body>
+</html>
