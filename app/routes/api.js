@@ -151,12 +151,20 @@ module.exports = function(router) {
 
 
         router.get('/classposts', (req, res) => {
-            classz.find({postType: 'class'}).populate('author', 'username email').sort({time: -1}).exec().then((resp) => {
+            classz.find({classId: req.body.classId}).populate('author', 'username email').sort({time: -1}).exec().then((resp) => {
                 res.json(resp);
             }).catch((err) => {
                 res.json(err);
             });
         });
+
+        //     router.get('/classposts', (req, res) => {
+        //     classdet.find({classname: 'classdetail'}).populate('author', 'username email').sort({time: -1}).exec().then((resp) => {
+        //         res.json(resp);
+        //     }).catch((err) => {
+        //         res.json(err);
+        //     });
+        // });
 
         var storage = multer.diskStorage({
             destination: function (req, file, cb) {
@@ -211,9 +219,10 @@ module.exports = function(router) {
             post.author = req.body.newclass.author;
             post.media.filename = req.file.filename;
             post.media.path = req.file.path;
-            post.postType = 'class';
+            post.classname = 'class';
             post.time = new Date().getTime();
             post.description = req.body.newclass.description;
+            post.classId = req.body.classId;
             
             post.save().then((result) => {
                 res.json(result);
@@ -236,9 +245,10 @@ module.exports = function(router) {
           
         });
 
+
         router.post('/add/userToClass', (req, res) => {
             let updateFields = {
-                $push: {
+                $addToSet: {
                     connectedUserIds: req.body.joiningid
                 }
             };

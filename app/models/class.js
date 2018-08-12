@@ -23,6 +23,10 @@ var classSchema = Schema({
     classname: {
         type: String
     },
+    classId: {
+        type: Schema.Types.ObjectId,
+        ref: 'classdetail'
+    }
 
     // connectedUserIds: {
     //     type: [{
